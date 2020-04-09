@@ -58,78 +58,6 @@ class hw_model(nn.Module):
 
         return label_out, data_out
 
-# class hw_model(nn.Module):
-#     def __init__(self):
-#         super(hw_model, self).__init__()
-#         self.emb = nn.Embedding(5, 5)
-#         self.data_fc1 = nn.Linear(6, 16)
-#         self.data_fc2 = nn.Linear(16, 32)
-        
-
-#         self.fc1 = nn.Linear(32+5, 64)
-#         self.fc2 = nn.Linear(64,32)
-#         self.fc3 = nn.Linear(32,16)
-#         self.label_out = nn.Linear(16,3)
-#         self.data_out = nn.Linear(32,6)
-
-#     def forward(self, input_data, input_direct, bs):
-#         x = input_data
-#         x = F.relu(self.data_fc1(x))
-#         x = F.sigmoid(self.data_fc2(x))
-
-#         y = input_direct
-#         y = F.softmax(self.emb(y))
-
-#         cat = torch.cat([x, y], 1)
-
-#         out = F.sigmoid(self.fc1(cat))
-#         out = F.relu(self.fc2(out))
-#         data_out = F.tanh(self.data_out(out))
-#         out = F.relu(self.fc3(out))
-#         label_out = F.softmax(self.label_out(out))
-#         return label_out, data_out
-    #--------------------------------------------------------------
-# class hw_model(nn.Module):
-#     def __init__(self):
-#         super(hw_model, self).__init__()
-#         self.emb = nn.Embedding(5, 5)
-#         self.data_fc1 = nn.Linear(3, 16)
-#         self.data_fc2 = nn.Linear(16, 32)
-        
-#         self.fc00 = nn.Linear(21,64)
-#         self.fc00_deconv = nn.ConvTranspose2d(64,32,3,1)
-#         self.fc00_deconv_bn = nn.BatchNorm2d(32)
-
-#         self.fc1 = nn.Linear(32*3*3, 128)
-#         self.fc2 = nn.Linear(128,64)
-#         self.fc3 = nn.Linear(64,32)
-#         self.label_out1 = nn.Linear(32,16)
-#         self.label_out2 = nn.Linear(16,3)
-#         self.data_out = nn.Linear(32,3)
-
-#     def forward(self, input_data, input_direct, bs):
-#         x = input_data
-#         x = F.relu(self.data_fc1(x))
-#         # x = F.sigmoid(self.data_fc2(x))
-
-#         y = input_direct
-#         y = F.softmax(self.emb(y))
-
-#         cat = torch.cat([x, y], 1)
-#         cat = F.relu(self.fc00(cat))
-#         cat = cat.unsqueeze(2).unsqueeze(3)
-#         cat = F.leaky_relu(self.fc00_deconv_bn(self.fc00_deconv(cat)),0.2)
-#         cat = cat.view(cat.size(0), -1)
-#         cat = F.relu(self.fc1(cat))
-#         cat = F.relu(self.fc2(cat))
-#         feature = F.relu(self.fc3(cat))
-
-#         data_out = torch.tanh(self.data_out(feature))
-
-#         label_out = F.relu(self.label_out1(feature))
-#         label_out = F.softmax(self.label_out2(label_out))
-
-#         return label_out, data_out
         
 def label_to_move(input_label):
     out_data = []
@@ -163,7 +91,7 @@ def ml_loop():
     ball_served = False
 	# 讀取模型資料
     # filename = path.join(path.dirname(__file__),"save\clf_KMeans_BallAndDirection.pickle")
-    filename = path.join(path.dirname(__file__),"save\\test_model_02.pickle")
+    filename = path.join(path.dirname(__file__),"save\\test_model_03.pickle")
     # filename = path.join(path.dirname(__file__),"\games\arkanoid\ml\save\clf_KMeans_BallAndDirection.pickle")
     # with open(filename, 'rb') as file:
         
