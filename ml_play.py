@@ -98,7 +98,7 @@ def ml_loop():
             y = label_to_move(out)
             y = np.array(y)
             # y = clf.predict(feature)#取得預測
-            print('movement :' y)
+            print('movement :', y)
             if y == 0:
                 comm.send_instruction(scene_info.frame, PlatformAction.NONE)
                 print('NONE')
