@@ -1,16 +1,15 @@
-"""
-The template of the main script of the machine learning process
-"""
+
 import pickle
 import numpy as np
-import games.arkanoid.communication as comm
-from games.arkanoid.communication import ( \
-    SceneInfo, GameStatus, PlatformAction
-)
 from sklearn.cluster import KMeans
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
 import os.path as path
+import games.arkanoid.communication as comm
+from games.arkanoid.communication import ( \
+    SceneInfo, GameStatus, PlatformAction
+)
+
 
 def label_to_move(input_label):
     out_data = []
