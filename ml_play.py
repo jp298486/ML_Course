@@ -38,7 +38,7 @@ def ml_loop():
     # 1. Put the initialization code here.
     ball_served = False
 	# 讀取模型資料
-    filename = path.join(path.dirname(__file__),"save\clf_KMeans_BallAndDirection.pickle")
+    filename = path.join(path.dirname(__file__),"save/clf_KMeans_BallAndDirection.pickle")
     # filename = path.join(path.dirname(__file__),"save\test_model_01.pickle")
     # filename = path.join(path.dirname(__file__),"\games\arkanoid\ml\save\clf_KMeans_BallAndDirection.pickle")
     with open(filename, 'rb') as file:
