@@ -93,7 +93,7 @@ def ml_loop():
             comm.send_instruction(scene_info.frame, PlatformAction.SERVE_TO_LEFT)
             ball_served = True
         else:
-            feature = torch.from_numpy(feature).type(torch.FloatTensor)
+            
             out = clf(feature, len(feature))
             y = label_to_move(out)
             y = np.array(y)
